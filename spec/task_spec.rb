@@ -37,4 +37,11 @@ describe(Task) do
       expect(task1).to(eq(task2))
     end
   end
+
+  describe("#due_date") do
+    it("determines the date that the task is due") do
+    test_task = Task.new({:description => "learn SQL", :list_id => 1, :due_date => "2015-01-01"})
+    expect(test_task.due_date()).to(eq("2015-01-01"))
+    end
+  end
 end
