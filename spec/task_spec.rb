@@ -1,6 +1,5 @@
 require('spec_helper')
 
-
 describe(Task) do
 
   describe(".all") do
