@@ -1,9 +1,12 @@
 class Task
-  attr_reader(:description, :list_id)
+
+  attr_reader(:description, :list_id, :due_date)
 
   define_method(:initialize) do |attributes|
     @description = attributes.fetch(:description)
     @list_id = attributes.fetch(:list_id)
+    @due_date = []
+
   end
 
   define_singleton_method(:all) do
@@ -18,10 +21,8 @@ class Task
   end
 
   define_method(:due_date) do
-    @due_date
-    Task.due_date.to_s()
-  end
-
+    @due_date = Task.due_date()
+end
   define_method(:save) do
     DB.exec("INSERT INTO tasks (description, list_id) VALUES ('#{@description}', #{@list_id})")
   end
